@@ -121,7 +121,7 @@ void addEvent(String deviceId) async {
   final Uri apiUrl =
       Uri.parse("https://restapi.affattr.com/v1/external_data/add_event"
           "?affise_device_id=$deviceId"
-          "&event.affise_event_name=openWeb"
+          "&event.affise_event_name=CustomId03"
           "&API-KEY=X84W8TIGVMF685I1DKN6LLN4M6JV79H9T8ATOGI7");
 
   final response = await http.get(
