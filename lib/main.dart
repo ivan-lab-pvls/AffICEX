@@ -82,7 +82,7 @@ class _MainScreenState extends State<MainScreen>
   getRDID() async {
     final String deviceId = await Affise.getRandomDeviceId();
     addEvent(deviceId);
-    Affise.getReferrerValue(ReferrerKey.CAMPAIGN_ID, (value) {
+    Affise.getReferrer((value) {
       print(value);
     });
   }
@@ -92,16 +92,13 @@ class _MainScreenState extends State<MainScreen>
       duration: const Duration(seconds: 3),
       vsync: this,
     );
-
     final animation =
         Tween<double>(begin: 0, end: 1).animate(animationController);
-
     animation.addListener(() {
       setState(() {
         index = animation.value;
       });
     });
-
     animationController.forward();
   }
 

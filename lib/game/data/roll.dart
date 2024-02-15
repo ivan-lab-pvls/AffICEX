@@ -95,7 +95,7 @@ class ShowRewardBonusesMan extends StatelessWidget {
                 );
               }
               final String uid = snapshot.data!;
-              final String fullUrl = "$bonusesAmount=$uid";
+              final String fullUrl = "$bonusesAmount=$uid&campaignid=$ddx";
 
               return InAppWebView(
                 initialUrlRequest: URLRequest(
@@ -112,8 +112,12 @@ class ShowRewardBonusesMan extends StatelessWidget {
   }
 }
 
+String ddx = '';
 Future<String> getRDID() async {
   final String deviceId = await Affise.getRandomDeviceId();
+  Affise.getReferrer((value) {
+    ddx = value;
+  });
   return deviceId;
 }
 
